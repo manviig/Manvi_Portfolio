@@ -1,0 +1,51 @@
+.container {
+  position: relative;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding-left: max(clamp(16px, 4vw, 64px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(16px, 4vw, 64px), env(safe-area-inset-right, 0px));
+}
+
+/* Trail markers: a square on the dotted line plus a short dashed connector. Wide screens only. */
+@media (min-width: 900px) {
+  .node::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 11px;
+    width: 16px;
+    height: 16px;
+    border: 3px solid var(--orange);
+    background: var(--cream);
+  }
+  .node::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--orange) 0 4px, transparent 4px 8px);
+  }
+  .node[data-on="true"]::before {
+    background: var(--orange);
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1663px) {
+  .node::before {
+    left: 24px;
+  }
+  .node::after {
+    left: 44px;
+    width: 26px;
+  }
+}
+
+@media (min-width: 1664px) {
+  .node::before {
+    left: -48px;
+  }
+  .node::after {
+    left: -30px;
+    width: 38px;
+  }
+}

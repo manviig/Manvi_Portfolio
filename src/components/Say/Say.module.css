@@ -1,0 +1,57 @@
+.say {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: min(100%, 42ch);
+  margin: 0 0 22px;
+  padding: 9px 13px;
+  background: var(--yellow);
+  color: var(--ink);
+  font: 600 14px/1.35 var(--font-body);
+  border-radius: 14px;
+  box-shadow: 3px 3px 0 var(--black);
+  transition: box-shadow 0.25s;
+}
+
+:global([data-guide-node][data-on="true"]) .say {
+  box-shadow: 3px 3px 0 var(--orange);
+}
+
+.av {
+  display: none;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--cream);
+  overflow: hidden;
+  border: 2px solid var(--ink);
+}
+
+.av img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 899px) {
+  .av {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  .say::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 13px;
+    width: 10px;
+    height: 10px;
+    background: var(--yellow);
+    transform: rotate(45deg);
+  }
+}

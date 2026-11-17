@@ -1,0 +1,84 @@
+/* The portrait's rotating ring would otherwise widen the page on small screens. */
+.about {
+  overflow-x: clip;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(32px, 5vw, 88px);
+  align-items: center;
+}
+
+.big {
+  font-size: clamp(44px, 5.4vw, 84px);
+  line-height: 0.98;
+}
+
+.lede {
+  margin-top: 22px;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.7;
+  max-width: 56ch;
+  color: #2b3b2f;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.facts {
+  list-style: none;
+  margin: clamp(32px, 3.6vw, 52px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 40px);
+}
+
+.facts li {
+  border-top: 2px solid var(--ink);
+  padding-top: 16px;
+}
+
+.k {
+  display: block;
+  font: 700 12px/1 var(--font-body);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 12px;
+}
+
+.facts b {
+  display: block;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.detail {
+  display: block;
+  margin-top: 4px;
+  font-size: 14.5px;
+  color: #3c4c40;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

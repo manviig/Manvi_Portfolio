@@ -1,0 +1,10 @@
+.zone {
+  position: relative;
+}
+
+/* Between 900px and 1663px the trail sits in a narrow rail, so content gets extra left padding. */
+@media (min-width: 900px) and (max-width: 1663px) {
+  .zone :global([data-container]) {
+    padding-left: 84px;
+  }
+}

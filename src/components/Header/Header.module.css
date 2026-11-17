@@ -1,0 +1,55 @@
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: clamp(22px, calc(var(--u, 14px) * 1.5), 40px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 400 clamp(22px, calc(var(--u, 14px) * 1.6), 36px) / 1 var(--font-display);
+  color: var(--cream);
+}
+
+.star {
+  width: 0.9em;
+  height: 0.9em;
+  fill: var(--orange);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.link,
+.cta {
+  text-decoration: none;
+  font-size: clamp(14px, calc(var(--u, 14px) * 1), 22px);
+  color: var(--cream);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.link:hover {
+  background: rgba(246, 239, 221, 0.12);
+}
+
+.cta {
+  background: var(--yellow);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 8px 18px;
+  margin-left: 6px;
+}
+
+@media (max-width: 900px) {
+  .link {
+    display: none;
+  }
+}

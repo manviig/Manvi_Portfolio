@@ -1,0 +1,40 @@
+.band {
+  position: relative;
+}
+
+.pad {
+  padding-block: clamp(44px, 4.6vw, 68px);
+}
+
+.green {
+  background: var(--green);
+  color: var(--cream);
+  --btn-fg: var(--cream);
+  --btn-bd: var(--cream);
+}
+
+.cream {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.black {
+  background: var(--black);
+  color: var(--cream);
+  --btn-fg: var(--cream);
+  --btn-bd: var(--cream);
+}
+
+.headRow {
+  margin-bottom: clamp(20px, 2.4vw, 32px);
+}
+
+.headRow h2 {
+  font-size: clamp(44px, 5.6vw, 84px);
+}
+
+@media (max-width: 900px) {
+  .pad {
+    padding-block: 52px;
+  }
+}

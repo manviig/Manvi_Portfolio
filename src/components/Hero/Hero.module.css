@@ -1,0 +1,129 @@
+/* The hero fills at least one screen (svh = the visible height on phones with moving toolbars).
+   It is a minimum, so short windows can still grow taller and nothing is clipped.
+
+   --u is the hero's scale unit: 1% of the width OR 1.75% of the height, whichever is smaller.
+   Type, buttons, header and the portrait are all sized in multiples of --u, so the content grows
+   with the screen instead of floating in a fixed-size box. Every clamp() floor equals the old
+   fixed size, so phones and small laptops look exactly as before. */
+.hero {
+  --u: min(1vw, 1.75svh);
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* On tall-but-narrow screens (tablets in portrait) a full 100svh would just add blank bands above and
+   below the content, so the minimum height is capped relative to the width. Phones keep the full screen. */
+@media (min-width: 901px) {
+  .hero {
+    min-height: min(100svh, calc(75vw + 200px));
+  }
+}
+
+/* The hero container is allowed to grow past the 1520px used by the sections below,
+   so ultra-wide monitors don't get huge empty side margins. */
+.hero .inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: clamp(1520px, 86vw, 2200px);
+}
+
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 96px);
+  align-items: center;
+  padding-block: clamp(8px, 1.2svh, 16px) clamp(32px, 5svh, 64px);
+}
+
+.titlebox {
+  position: relative;
+  min-width: 0;
+}
+
+.kicker {
+  font: 700 clamp(13px, calc(var(--u) * 0.85), 22px) / 1 var(--font-body);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: clamp(10px, calc(var(--u) * 1.1), 24px);
+}
+
+.mega {
+  font-size: clamp(36px, calc(var(--u) * 4.8), 150px);
+  line-height: 1.02;
+  margin-bottom: clamp(14px, calc(var(--u) * 1.6), 40px);
+  color: var(--cream);
+  letter-spacing: -0.015em;
+}
+
+.lead {
+  margin-top: clamp(24px, calc(var(--u) * 1.6), 40px);
+  font-size: clamp(17px, calc(var(--u) * 1.6), 40px);
+  line-height: 1.6;
+  max-width: 58ch;
+  color: #dce6d8;
+}
+
+.cta {
+  /* Button reads --btn-fs; its padding is in em, so the whole button scales together. */
+  --btn-fs: clamp(14px, calc(var(--u) * 0.95), 22px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(12px, calc(var(--u) * 0.85), 20px);
+  margin-top: clamp(26px, calc(var(--u) * 1.9), 48px);
+}
+
+.avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(22px, calc(var(--u) * 1.5), 36px);
+  font-size: clamp(14px, calc(var(--u) * 0.85), 19px);
+  color: #cbd8c6;
+}
+
+.avail i {
+  flex: none;
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 0 4px rgba(155, 211, 176, 0.22);
+}
+
+.handles {
+  list-style: none;
+  margin: clamp(18px, calc(var(--u) * 1.2), 30px) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px clamp(26px, calc(var(--u) * 1.8), 44px);
+  font-size: clamp(15px, calc(var(--u) * 1.05), 23px);
+}
+
+.handles a {
+  text-decoration: none;
+}
+
+.handles a:hover {
+  text-decoration: underline;
+}
+
+.handles b {
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--yellow);
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .titlebox {
+    order: -1;
+  }
+}

@@ -1,0 +1,88 @@
+/* Design tokens, reset and the few truly global rules. Everything else lives in CSS Modules next to its component. */
+:root {
+  --font-display: "Gloock", "Playfair Display", Georgia, serif;
+  --font-body: "Figtree Variable", "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --green: #2e4a34;
+  --deep: #1e3326;
+  --black: #0b100c;
+  --cream: #f6efdd;
+  --sand: #ebe1c6;
+  --ink: #15231a;
+  --orange: #ef6b3b;
+  --yellow: #f9b21a;
+  --terra: #c0713f;
+  --mint: #9bd3b0;
+  --surface: #fbf6e8;
+  --surface2: #efe6cc;
+  --fg: #15231a;
+  --muted: #4f5e50;
+  --line: rgba(21, 35, 26, 0.14);
+  --line2: rgba(21, 35, 26, 0.3);
+  --sage: #2e7d5b;
+  --clay: #b34e2e;
+  --mist: #2f6f8c;
+  --shadow: 6px 6px 0 rgba(11, 16, 12, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--green);
+  color: var(--ink);
+  font: 400 16px/1.65 var(--font-body);
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  margin: 0;
+  text-wrap: balance;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+/* Visually hidden, still read by screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

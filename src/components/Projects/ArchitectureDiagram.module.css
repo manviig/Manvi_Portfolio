@@ -1,0 +1,41 @@
+.diagram {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface2);
+  padding: 12px;
+  margin: 0;
+}
+
+.diagram svg {
+  display: block;
+  min-width: 520px;
+  width: 100%;
+  height: auto;
+}
+
+.diagram text {
+  font-family: var(--font-body);
+  fill: var(--fg);
+}
+
+.diagram .sub {
+  fill: var(--muted);
+}
+
+.box {
+  fill: var(--surface);
+  stroke: var(--line2);
+}
+
+.arrow {
+  stroke: var(--muted);
+  fill: none;
+  stroke-width: 1.4;
+}
+
+@media (min-width: 901px) {
+  .diagram svg {
+    min-width: 0;
+  }
+}

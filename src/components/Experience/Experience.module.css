@@ -1,0 +1,107 @@
+.card {
+  background: var(--yellow);
+  color: var(--ink);
+  padding: clamp(22px, 2.4vw, 34px);
+  border-radius: 6px;
+  box-shadow: 6px 6px 0 var(--black);
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.role {
+  font: 400 clamp(28px, 3vw, 44px) / 1.05 var(--font-display);
+}
+
+.meta {
+  font-size: 15px;
+  color: #3b3000;
+  margin-top: 8px;
+}
+
+.stack {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.stack li {
+  background: var(--ink);
+  color: var(--cream);
+  font: 500 13px var(--font-body);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.summary {
+  margin-top: 18px;
+  max-width: 80ch;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.65;
+  color: #2a2200;
+}
+
+.highlights {
+  margin: 18px 0 0;
+  padding-left: 20px;
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.55;
+}
+
+.highlights li {
+  margin: 6px 0;
+}
+
+/* Ticket lifecycle: a row of pills joined by arrows. */
+.flow {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: clamp(22px, 2.4vw, 32px) 0 0;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pill {
+  background: var(--cream);
+  color: var(--ink);
+  font: 700 14px var(--font-body);
+  padding: 11px 18px;
+  border-radius: 999px;
+}
+
+.done {
+  background: var(--orange);
+}
+
+.arrow {
+  font-style: normal;
+  color: var(--yellow);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .card {
+    padding: 26px 22px;
+  }
+  .pill {
+    font-size: 13px;
+    padding: 9px 14px;
+  }
+}

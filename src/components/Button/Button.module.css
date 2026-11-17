@@ -1,0 +1,23 @@
+/* Colours come from --btn-fg / --btn-bd, which each band (or card) sets for its own background. */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font: 700 var(--btn-fs, 14px) var(--font-body);
+  padding: 0.857em 1.571em; /* = 12px 22px at the default 14px */
+  border-radius: 999px;
+  border: 2px solid var(--btn-bd, var(--ink));
+  background: transparent;
+  color: var(--btn-fg, var(--ink));
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
